@@ -3,6 +3,7 @@ import '../models/weather.dart';
 import '../services/weather_service.dart';
 import '../services/demo_post_service.dart';
 import '../services/ai_product_service.dart';
+import '../services/weather_service_dio.dart';
 
 enum _ViewStatus { idle, loading, success, error }
 
@@ -95,6 +96,17 @@ class _WeatherSearchPageState extends State<WeatherSearchPage> {
                 }
               },
               child: const Text('ทดลองดึงสินค้า (ขั้นตอนที่ 4.3)'),
+            ),
+            const SizedBox(height: 12),
+            ElevatedButton(
+              onPressed: () async {
+                final weather = await fetchWeatherWithDio(_cityController.text);
+                print('cityName: ${weather.cityName}');
+                print('temperature: ${weather.temperature}');
+                print('description: ${weather.description}');
+                print('feelsLike: ${weather.feelsLike}');
+              },
+              child: const Text('ทดลอง Dio (ขั้นตอนที่ 5.3)'),
             ),
           ],
         ),
