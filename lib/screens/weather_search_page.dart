@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/weather.dart';
 import '../services/weather_service.dart';
+import '../services/demo_post_service.dart';
 
 enum _ViewStatus { idle, loading, success, error }
 
@@ -73,6 +74,11 @@ class _WeatherSearchPageState extends State<WeatherSearchPage> {
                 _errorMessage!,
                 style: const TextStyle(color: Colors.red),
               ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () => createDemoPost(),
+              child: const Text('ทดลอง POST (ขั้นตอนที่ 3.1)'),
+            ),
           ],
         ),
       ),
