@@ -79,6 +79,11 @@ class _WeatherSearchPageState extends State<WeatherSearchPage> {
               onPressed: () => createDemoPost(),
               child: const Text('ทดลอง POST (ขั้นตอนที่ 3.1)'),
             ),
+            const SizedBox(height: 12),
+            ElevatedButton(
+              onPressed: () => updateDemoPost(),
+              child: const Text('ทดลอง PUT (ขั้นตอนที่ 3.2)'),
+            ),
           ],
         ),
       ),
